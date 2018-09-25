@@ -1,10 +1,6 @@
 package com.wdsite.demo.test.generator;
 
-import javax.sql.DataSource;
-
 import org.junit.Test;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Bean;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
@@ -19,8 +15,6 @@ import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
  * 测试生成代码
  * </p>
  *
- * @author K神
- * @date 2017/12/18
  */
 public class GeneratorServiceEntity {
 	
@@ -36,11 +30,11 @@ public class GeneratorServiceEntity {
 
     private void generateByTables(boolean serviceNameStartWithI, String packageName, String... tableNames) {
         GlobalConfig config = new GlobalConfig();
-        String dbUrl = "jdbc:mysql://localhost:3306/demo?userSSL=false&characterEncoding=UTF8&serverTimezone=UTC  ";
+        String dbUrl = "jdbc:mysql://192.168.207.134:3306/demo?userSSL=false&characterEncoding=UTF8&serverTimezone=UTC";
         DataSourceConfig dataSourceConfig = new DataSourceConfig();
         dataSourceConfig.setDbType(DbType.MYSQL)
                 .setUrl(dbUrl)
-                .setUsername("root")
+                .setUsername("psb")
                 .setPassword("123456")
                 .setDriverName("com.mysql.cj.jdbc.Driver");
         StrategyConfig strategyConfig = new StrategyConfig();
@@ -65,9 +59,5 @@ public class GeneratorServiceEntity {
                                 .setController("controller")
                                 .setEntity("entity")
                 ).execute();
-    }
-
-    private void generateByTables(String packageName, String... tableNames) {
-        generateByTables(true, packageName, tableNames);
     }
 }
