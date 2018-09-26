@@ -1,6 +1,9 @@
 package com.wdsite.demo.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
 
@@ -10,21 +13,32 @@ import java.io.Serializable;
  * </p>
  *
  * @author Dy
- * @since 2018-09-25
+ * @since 2018-09-26
  */
 public class Demo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @TableId(value = "id", type = IdType.AUTO)
+    private Long id;
+
     private String name;
 
     @TableField("REMOVED")
+    @TableLogic
     private Boolean removed;
 
     private LocalDateTime createTime;
 
     private LocalDateTime updateTime;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
     public String getName() {
         return name;
     }
@@ -57,7 +71,8 @@ public class Demo implements Serializable {
     @Override
     public String toString() {
         return "Demo{" +
-        "name=" + name +
+        "id=" + id +
+        ", name=" + name +
         ", removed=" + removed +
         ", createTime=" + createTime +
         ", updateTime=" + updateTime +

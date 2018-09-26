@@ -1,9 +1,10 @@
-package com.wdsite.deom.tools;
+package com.wdsite.demo.tools;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
@@ -52,7 +53,9 @@ public class CodeGenerator {
         gc.setAuthor("Dy");
         gc.setOpen(false);
         gc.setBaseResultMap(true);
-        gc.setBaseColumnList(true);
+        gc.setBaseColumnList(false);
+//        gc.setMapperName("%sDao");
+        gc.setIdType(IdType.ID_WORKER);
         mpg.setGlobalConfig(gc);
 
         // 数据源配置
@@ -83,8 +86,8 @@ public class CodeGenerator {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 // 自定义输入文件名称
-                return projectPath + "/src/main/resources/mapper/" + pc.getModuleName()
-                        + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
+                return projectPath + "/src/main/resources/mapper/" 
+                		+ tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
             }
         });
         cfg.setFileOutConfigList(focList);
@@ -99,8 +102,9 @@ public class CodeGenerator {
         strategy.setEntityLombokModel(false);
         strategy.setRestControllerStyle(true);
 //        strategy.setSuperControllerClass("com.baomidou.ant.common.BaseController");
+        strategy.setLogicDeleteFieldName("REMOVED");
         strategy.setInclude(scanner("表名"));
-        strategy.setSuperEntityColumns("id");
+//        strategy.setSuperEntityColumns("id");
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix(pc.getModuleName() + "_");
         mpg.setStrategy(strategy);
