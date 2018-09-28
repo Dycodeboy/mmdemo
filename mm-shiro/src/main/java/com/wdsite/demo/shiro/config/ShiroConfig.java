@@ -12,10 +12,12 @@ import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.crazycake.shiro.RedisCacheManager;
 import org.crazycake.shiro.RedisManager;
 import org.crazycake.shiro.RedisSessionDAO;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.HandlerExceptionResolver;
+
+import com.wdsite.demo.shiro.realm.MyShiroRealm;
  
 /**
  * Created by Administrator on 2017/12/11.
@@ -64,33 +66,39 @@ public class ShiroConfig {
      *
      * @return
      */
-    @Bean
+    @Bean("hashedCredentialsMatcher")
     public HashedCredentialsMatcher hashedCredentialsMatcher() {
         HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
-        hashedCredentialsMatcher.setHashAlgorithmName("md5");//散列算法:这里使用MD5算法;
+        hashedCredentialsMatcher.setHashAlgorithmName("MD5");//散列算法:这里使用MD5算法;
         hashedCredentialsMatcher.setHashIterations(2);//散列的次数，比如散列两次，相当于 md5(md5(""));
+        hashedCredentialsMatcher.setStoredCredentialsHexEncoded(true);
         return hashedCredentialsMatcher;
     }
  
-    @Bean
-    public MyShiroRealm myShiroRealm() {
+    @Bean("MyShiroRealm")
+//    @DependsOn("lifecycleBeanPostProcessor")//可选
+    public MyShiroRealm myShiroRealm(@Qualifier("hashedCredentialsMatcher") HashedCredentialsMatcher matcher) {
         MyShiroRealm myShiroRealm = new MyShiroRealm();
-        myShiroRealm.setCredentialsMatcher(hashedCredentialsMatcher());
+        myShiroRealm.setCredentialsMatcher(matcher);
         return myShiroRealm;
     }
  
- 
+    /**
+     * 定义安全管理器securityManager,注入自定义的realm
+     * @param authRealm
+     * @return
+     */
     @Bean
-    public SecurityManager securityManager() {
+    public SecurityManager securityManager(@Qualifier("MyShiroRealm") MyShiroRealm myShiroRealm) {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
-        securityManager.setRealm(myShiroRealm());
+        securityManager.setRealm(myShiroRealm);
         // 自定义session管理 使用redis
         securityManager.setSessionManager(sessionManager());
         // 自定义缓存实现 使用redis
         securityManager.setCacheManager(cacheManager());
         return securityManager;
     }
- 
+    
     //自定义sessionManager
     @Bean
     public SessionManager sessionManager() {
@@ -110,7 +118,7 @@ public class ShiroConfig {
         RedisManager redisManager = new RedisManager();
         redisManager.setHost(host);
         redisManager.setPort(port);
-        redisManager.setExpire(1800);// 配置缓存过期时间
+//        redisManager.setExpire(1800);// 配置缓存过期时间
         redisManager.setTimeout(timeout);
         redisManager.setPassword(password);
         return redisManager;
@@ -156,12 +164,12 @@ public class ShiroConfig {
         return authorizationAttributeSourceAdvisor;
     }
  
-    /**
-     * 注册全局异常处理
-     * @return
-     */
-    @Bean(name = "exceptionHandler")
-    public HandlerExceptionResolver handlerExceptionResolver() {
-        return new MyExceptionHandler();
-    }
+//    /**
+//     * 注册全局异常处理
+//     * @return
+//     */
+//    @Bean(name = "exceptionHandler")
+//    public HandlerExceptionResolver handlerExceptionResolver() {
+//        return new MyExceptionHandler();
+//    }
 }

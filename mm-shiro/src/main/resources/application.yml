@@ -1,6 +1,13 @@
 #设置热部署
 #开启热部署
 spring:
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  aop:
+    auto: true
   devtools:
     restart:
       enabled: true
@@ -15,22 +22,34 @@ spring:
     username: psb  
     password: 123456
     driverClassName : com.mysql.cj.jdbc.Driver  
+    druid:        #连接池的配置信息  
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      max-pool-prepared-statement-per-connection-size: 20
+      max-create-task-count: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1 FROM DUAL 
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      filter-class-names:
+      - stat
+      - wall
+      - log4j
+      connect-properties: 
+        druid.stat.mergeSql: true
+        druid.stat.slowSqlMillis: 5000 
+  redis:
+    shiro:
+      host: 192.168.207.134
+      port: 6379
+      timeout: 3000
+      password: dy513952310
 
-#连接池的配置信息  
-#              initialSize=5  
-#              minIdle=5  
-#              maxActive=20  
-#              maxWait=60000  
-#              timeBetweenEvictionRunsMillis=60000  
-#              minEvictableIdleTimeMillis=300000  
-#              validationQuery=SELECT 1 FROM DUAL  
-#              testWhileIdle=true  
-#              testOnBorrow=false  
-#              testOnReturn=false  
-#              poolPreparedStatements=true  
-#              maxPoolPreparedStatementPerConnectionSize=20  
-#              filters=stat,wall,log4j  
-#              connectionProperties=druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000  
+
 #mybatis
 mybatis-plus:
   mapper-locations: classpath:/mapper/*Mapper.xml
