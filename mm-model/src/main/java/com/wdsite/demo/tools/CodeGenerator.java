@@ -21,6 +21,14 @@ import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 
 public class CodeGenerator {
+	
+	private static final String author = "Dy";
+	private static final String ds_url = "jdbc:mysql://192.168.207.134:3306/demo?useUnicode=true&useSSL=false&characterEncoding=utf8";
+	private static final String ds_drivername = "com.mysql.cj.jdbc.Driver";
+	private static final String ds_username = "psb";
+	private static final String ds_password = "123456";
+	private static final String parent_name = "com.wdsite";
+	private static final String LogicDeleteFieldName = "REMOVED";
 
     /**
      * <p>
@@ -50,7 +58,7 @@ public class CodeGenerator {
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
         gc.setOutputDir(projectPath + "/src/main/java");
-        gc.setAuthor("Dy");
+        gc.setAuthor(author);
         gc.setOpen(false);
         gc.setBaseResultMap(true);
         gc.setBaseColumnList(false);
@@ -60,17 +68,17 @@ public class CodeGenerator {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://192.168.207.134:3306/demo?useUnicode=true&useSSL=false&characterEncoding=utf8");
+        dsc.setUrl(ds_url);
         // dsc.setSchemaName("public");
-        dsc.setDriverName("com.mysql.cj.jdbc.Driver");
-        dsc.setUsername("psb");
-        dsc.setPassword("123456");
+        dsc.setDriverName(ds_drivername);
+        dsc.setUsername(ds_username);
+        dsc.setPassword(ds_password);
         mpg.setDataSource(dsc);
 
         // 包配置
         PackageConfig pc = new PackageConfig();
         pc.setModuleName(scanner("模块名"));
-        pc.setParent("com.wdsite");
+        pc.setParent(parent_name);
         mpg.setPackageInfo(pc);
 
         // 自定义配置
@@ -102,7 +110,7 @@ public class CodeGenerator {
         strategy.setEntityLombokModel(false);
         strategy.setRestControllerStyle(true);
 //        strategy.setSuperControllerClass("com.baomidou.ant.common.BaseController");
-        strategy.setLogicDeleteFieldName("REMOVED");
+        strategy.setLogicDeleteFieldName(LogicDeleteFieldName);
         strategy.setInclude(scanner("表名"));
 //        strategy.setSuperEntityColumns("id");
         strategy.setControllerMappingHyphenStyle(true);

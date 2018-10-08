@@ -9,19 +9,20 @@
 	</parent>
 	<artifactId>mm-shiro</artifactId>
 	<name>shiro</name>
-	
+
 	<dependencies>
+
 		<dependency>
-		    <groupId>org.apache.shiro</groupId>
-		    <artifactId>shiro-spring</artifactId>
-		    <version>1.4.0</version>
+			<groupId>org.crazycake</groupId>
+			<artifactId>shiro-redis</artifactId>
+			<version>3.1.0</version>
 		</dependency>
-		
+
 		<dependency>
-		    <groupId>org.crazycake</groupId>
-		    <artifactId>shiro-redis</artifactId>
-		    <version>3.1.0</version>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring-boot-web-starter</artifactId>
+			<version>1.4.0-RC2</version>
 		</dependency>
 	</dependencies>
-	
+
 </project>
