@@ -1,9 +1,12 @@
 package com.wdsite.demo.controller;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.RestController;
+
+import com.wdsite.demo.entity.Demo;
+import com.wdsite.demo.service.IDemoService;
 
 /**
  * <p>
@@ -16,5 +19,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/demo/demo")
 public class DemoController {
+	
+	@Autowired
+	private IDemoService demoService;
+	
+	@RequestMapping("test1")
+	public Demo Test() {
+		System.out.println("123123123");
+		System.out.println(demoService.getById(3));
+		return demoService.getById(3);
+		
+	}
 
 }

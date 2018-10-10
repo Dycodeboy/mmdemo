@@ -9,4 +9,12 @@
 	</parent>
 	<artifactId>mm-model</artifactId>
 
+	<dependencies>
+		<dependency>
+			<groupId>com.wdsite</groupId>
+			<artifactId>mm-shiro</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+
 </project>
