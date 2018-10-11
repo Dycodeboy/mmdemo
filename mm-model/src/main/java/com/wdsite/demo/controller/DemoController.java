@@ -25,7 +25,6 @@ public class DemoController {
 	
 	@RequestMapping("test1")
 	public Demo Test() {
-		System.out.println("123123123");
 		System.out.println(demoService.getById(3));
 		return demoService.getById(3);
 		

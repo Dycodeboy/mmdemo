@@ -1,4 +1,4 @@
-package com.wdsite.demo.shiro.realm;
+package com.wdsite.demo.realm;
 
 import java.io.Serializable;
 
