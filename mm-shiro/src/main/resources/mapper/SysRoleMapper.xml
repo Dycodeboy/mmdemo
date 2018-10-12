@@ -4,10 +4,8 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.wdsite.demo.shiro.entity.SysRole">
-        <id column="role_id" property="roleId" />
-        <result column="role_key" property="roleKey" />
-        <result column="role_value" property="roleValue" />
-        <result column="company_id" property="companyId" />
+        <id column="id" property="id" />
+        <result column="name" property="name" />
         <result column="description" property="description" />
         <result column="REMOVED" property="removed" />
         <result column="create_time" property="createTime" />

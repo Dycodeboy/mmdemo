@@ -4,9 +4,12 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.wdsite.demo.shiro.entity.SysPermission">
-        <id column="permission_id" property="permissionId" />
-        <result column="permission_name" property="permissionName" />
-        <result column="permission_url" property="permissionUrl" />
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="url" property="url" />
+        <result column="type" property="type" />
+        <result column="parent_id" property="parentId" />
+        <result column="description" property="description" />
         <result column="REMOVED" property="removed" />
         <result column="create_time" property="createTime" />
         <result column="update_time" property="updateTime" />

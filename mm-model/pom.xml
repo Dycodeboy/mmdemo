@@ -11,14 +11,9 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.apache.shiro</groupId>
-			<artifactId>shiro-spring-boot-web-starter</artifactId>
-			<version>1.4.0-RC2</version>
-		</dependency>
-		<dependency>
-			<groupId>org.crazycake</groupId>
-			<artifactId>shiro-redis</artifactId>
-			<version>3.1.0</version>
+			<groupId>com.wdsite</groupId>
+			<artifactId>mm-shiro</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 

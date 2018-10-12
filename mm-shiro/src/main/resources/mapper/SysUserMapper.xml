@@ -4,10 +4,12 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.wdsite.demo.shiro.entity.SysUser">
-        <id column="user_id" property="userId" />
-        <result column="login_account" property="loginAccount" />
-        <result column="login_pass" property="loginPass" />
-        <result column="user_name" property="userName" />
+        <id column="id" property="id" />
+        <result column="account" property="account" />
+        <result column="password" property="password" />
+        <result column="name" property="name" />
+        <result column="salt" property="salt" />
+        <result column="last_login_time" property="lastLoginTime" />
         <result column="REMOVED" property="removed" />
         <result column="create_time" property="createTime" />
         <result column="update_time" property="updateTime" />
