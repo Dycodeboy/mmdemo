@@ -10,14 +10,10 @@
         <result column="type" property="type" />
         <result column="parent_id" property="parentId" />
         <result column="description" property="description" />
+        <result column="available" property="available" />
         <result column="REMOVED" property="removed" />
         <result column="create_time" property="createTime" />
         <result column="update_time" property="updateTime" />
     </resultMap>
     
-    <select id="listByUserAccount" resultMap="BaseResultMap">
-    	select p.* 
-    	from sys_permission as p
-    </select>
-
 </mapper>

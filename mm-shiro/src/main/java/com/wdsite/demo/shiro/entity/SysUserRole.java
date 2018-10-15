@@ -1,7 +1,5 @@
 package com.wdsite.demo.shiro.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 
 /**

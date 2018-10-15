@@ -46,6 +46,11 @@ public class SysUser implements Serializable {
      * 最后登录时间
      */
     private LocalDateTime lastLoginTime;
+    
+    /**
+     * 是否可用
+     */
+    private Boolean available;
 
     /**
      * 逻辑删除标识
@@ -106,6 +111,15 @@ public class SysUser implements Serializable {
     public void setLastLoginTime(LocalDateTime lastLoginTime) {
         this.lastLoginTime = lastLoginTime;
     }
+    
+    public Boolean getAvailable() {
+        return available;
+    }
+
+    public void setAvailable(Boolean available) {
+        this.available = available;
+    }
+    
     public Boolean getRemoved() {
         return removed;
     }

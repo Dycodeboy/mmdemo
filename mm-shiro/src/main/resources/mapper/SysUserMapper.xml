@@ -10,6 +10,7 @@
         <result column="name" property="name" />
         <result column="salt" property="salt" />
         <result column="last_login_time" property="lastLoginTime" />
+        <result column="available" property="available" />
         <result column="REMOVED" property="removed" />
         <result column="create_time" property="createTime" />
         <result column="update_time" property="updateTime" />

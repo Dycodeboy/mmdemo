@@ -6,7 +6,9 @@
     <resultMap id="BaseResultMap" type="com.wdsite.demo.shiro.entity.SysRole">
         <id column="id" property="id" />
         <result column="name" property="name" />
+        <result column="parent_id" property="parentId" />
         <result column="description" property="description" />
+        <result column="available" property="available" />
         <result column="REMOVED" property="removed" />
         <result column="create_time" property="createTime" />
         <result column="update_time" property="updateTime" />

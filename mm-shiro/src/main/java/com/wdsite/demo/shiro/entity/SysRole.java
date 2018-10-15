@@ -28,9 +28,19 @@ public class SysRole implements Serializable {
     private String name;
 
     /**
+     * 父级权限id
+     */
+    private Integer parentId;
+    
+    /**
      * 角色描述
      */
     private String description;
+    
+    /**
+     * 是否可用
+     */
+    private Boolean available;
 
     /**
      * 逻辑删除标识
@@ -70,6 +80,23 @@ public class SysRole implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
+    
+    public Integer getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(Integer parentId) {
+        this.parentId = parentId;
+    }
+    
+    public Boolean getAvailable() {
+        return available;
+    }
+
+    public void setAvailable(Boolean available) {
+        this.available = available;
+    }
+    
     public Boolean getRemoved() {
         return removed;
     }
@@ -98,6 +125,7 @@ public class SysRole implements Serializable {
         "id=" + id +
         ", name=" + name +
         ", description=" + description +
+        ", parentId=" + parentId +
         ", removed=" + removed +
         ", createTime=" + createTime +
         ", updateTime=" + updateTime +

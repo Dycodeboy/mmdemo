@@ -46,6 +46,11 @@ public class SysPermission implements Serializable {
      * 权限描述
      */
     private String description;
+    
+    /**
+     * 是否可用
+     */
+    private Boolean available;
 
     /**
      * 逻辑删除标识
@@ -106,6 +111,15 @@ public class SysPermission implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
+    
+    public Boolean getAvailable() {
+        return available;
+    }
+
+    public void setAvailable(Boolean available) {
+        this.available = available;
+    }
+    
     public Boolean getRemoved() {
         return removed;
     }

@@ -13,11 +13,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.wdsite.demo.model.Application;
 import com.wdsite.demo.shiro.entity.SysUser;
-import com.wdsite.demo.shiro.service.ISysRoleService;
-import com.wdsite.demo.shiro.service.ISysUserRoleService;
 import com.wdsite.demo.shiro.service.ISysUserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -54,19 +51,30 @@ public class ShiroTest {
 	@Autowired
 	private ISysUserService userService;
 
-	@Autowired
-	private ISysUserRoleService userRoleService;
+//	@Autowired
+//	private ISysUserRoleService userRoleService;
+//
+//	@Autowired
+//	private ISysRoleService roleService;
 
-	@Autowired
-	private ISysRoleService roleService;
-
+	@Test
 	public void test2() {
 		
-		String username = "test";
+		String account = "test1";
+		SysUser user = userService.findByAccount(account);
+		System.out.println(user);
+	}
+	
+	@Test
+	public void test3() {
+		
 		SysUser entity = new SysUser();
-		entity.setAccount(username);
-		QueryWrapper<SysUser> qw = new QueryWrapper<SysUser>(entity);
-		SysUser user = userService.getOne(qw);
+		entity.setAccount("test1");
+		entity.setPassword("test1");
+		entity.setName("test1");
+		userService.saveOrUpdate(entity);
+		System.out.println(entity);
+		
 	}
 
 }
