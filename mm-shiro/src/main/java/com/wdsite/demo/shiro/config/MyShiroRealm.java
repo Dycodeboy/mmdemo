@@ -30,6 +30,8 @@ public class MyShiroRealm extends AuthorizingRealm {
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         System.out.println("权限配置-->MyShiroRealm.doGetAuthorizationInfo()");
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
+        SysUser user = (SysUser) principals.getPrimaryPrincipal();
+        
 //        UserInfo userInfo = (UserInfo) principals.getPrimaryPrincipal();
 //        for (SysRole role : userInfo.getRoleList()) {
 //            authorizationInfo.addRole(role.getRole());
@@ -58,7 +60,7 @@ public class MyShiroRealm extends AuthorizingRealm {
         if (user == null) {
             return null;
         }
-        if (user.getRemoved()) { //账户冻结
+        if (user.getAvailable()) { //账户冻结
             throw new LockedAccountException();
         }
         SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(

@@ -14,6 +14,9 @@ import com.wdsite.demo.model.Application;
 import com.wdsite.demo.model.entity.Demo;
 import com.wdsite.demo.model.mapper.DemoMapper;
 import com.wdsite.demo.model.service.IDemoService;
+import com.wdsite.demo.shiro.entity.SysUser;
+import com.wdsite.demo.shiro.mapper.SysUserMapper;
+import com.wdsite.demo.shiro.service.ISysUserService;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -44,6 +47,12 @@ public class Testt {
 		
 		
 	}
+	
+	@Autowired
+	private ISysUserService userService;
+	
+	@Autowired
+	private SysUserMapper userDao;
 	
 	@Test
 	public void testDelete() {

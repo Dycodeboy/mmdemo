@@ -1,11 +1,13 @@
 package com.wdsite.demo.shiro.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import java.time.LocalDateTime;
-import com.baomidou.mybatisplus.annotation.TableLogic;
-import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.Set;
+
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 
 /**
  * <p>
@@ -16,8 +18,20 @@ import java.io.Serializable;
  * @since 2018-10-12
  */
 public class SysUser implements Serializable {
+	
+	
+	private Set<SysRole> roles;
+	
+    public Set<SysRole> getRoles() {
+		return roles;
+	}
 
-    private static final long serialVersionUID = 1L;
+	public void setRoles(Set<SysRole> roles) {
+		this.roles = roles;
+	}
+	
+
+	private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;

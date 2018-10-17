@@ -12,5 +12,7 @@ import com.wdsite.demo.shiro.entity.SysUser;
  * @since 2018-10-12
  */
 public interface SysUserMapper extends BaseMapper<SysUser> {
-
+	
+	public void saveUserRole(SysUser entity);
+	
 }

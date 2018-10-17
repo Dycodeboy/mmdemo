@@ -14,6 +14,22 @@
         <result column="REMOVED" property="removed" />
         <result column="create_time" property="createTime" />
         <result column="update_time" property="updateTime" />
+        
+        <collection property="roles" ofType="com.wdsite.demo.shiro.entity.SysRole">
+        	<id column="id" property="id" />
+	        <result column="name" property="name" />
+	        <result column="available" property="available" />
+        </collection>
     </resultMap>
+    
+    <insert id="saveUserRole" parameterType="com.wdsite.demo.shiro.entity.SysUser">
+    	insert into user_role(
+			user_id,role_id
+		) values
+		<foreach collection="roles" item="role" separator=",">
+			(${id},#{role.id})
+		</foreach>
+    </insert>
+    
 
 </mapper>
