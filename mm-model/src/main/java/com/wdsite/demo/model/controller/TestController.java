@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wdsite.demo.model.service.IDemoService;
-import com.wdsite.demo.shiro.entity.SysUser;
-import com.wdsite.demo.shiro.service.ISysUserService;
+import com.wdsite.shiro.entity.SysUser;
+import com.wdsite.shiro.service.ISysUserService;
 
 @RestController
 @RequestMapping("/demo/shiro")

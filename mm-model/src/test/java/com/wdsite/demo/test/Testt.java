@@ -14,9 +14,9 @@ import com.wdsite.demo.model.Application;
 import com.wdsite.demo.model.entity.Demo;
 import com.wdsite.demo.model.mapper.DemoMapper;
 import com.wdsite.demo.model.service.IDemoService;
-import com.wdsite.demo.shiro.entity.SysUser;
-import com.wdsite.demo.shiro.mapper.SysUserMapper;
-import com.wdsite.demo.shiro.service.ISysUserService;
+import com.wdsite.shiro.mapper.SysRoleMapper;
+import com.wdsite.shiro.mapper.SysUserMapper;
+import com.wdsite.shiro.service.ISysUserService;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -53,6 +53,15 @@ public class Testt {
 	
 	@Autowired
 	private SysUserMapper userDao;
+	
+	@Autowired
+	private SysRoleMapper roleDao;
+	
+	@Test
+	public void test3() {
+		System.out.println(userDao.selectById(1));
+		System.out.println(roleDao.getRolesByUserId(1L));
+	}
 	
 	@Test
 	public void testDelete() {

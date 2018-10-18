@@ -13,7 +13,7 @@ import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 //Spring boot方式
 @EnableTransactionManagement
 @Configuration
-@MapperScan("com.wdsite.demo.*.mapper")
+@MapperScan({"com.wdsite.*.mapper","com.wdsite.demo.*.mapper"})
 public class MybatisPlusConfig {
 
 	/**

@@ -14,8 +14,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.wdsite.demo.model.Application;
-import com.wdsite.demo.shiro.entity.SysUser;
-import com.wdsite.demo.shiro.service.ISysUserService;
+import com.wdsite.shiro.entity.SysUser;
+import com.wdsite.shiro.service.ISysUserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = Application.class)
