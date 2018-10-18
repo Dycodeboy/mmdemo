@@ -16,15 +16,6 @@
         <result column="update_time" property="updateTime" />
     </resultMap>
     
-    <insert id="saveUserRole" parameterType="com.wdsite.shiro.entity.SysUser">
-    	insert into user_role(
-			user_id,role_id
-		) values
-		<foreach collection="roles" item="role" separator=",">
-			(${id},#{role.id})
-		</foreach>
-    </insert>
-    
     <select id="getRolesByUserId" resultType="com.wdsite.shiro.entity.SysRole">
     	SELECT r.*
 		FROM sys_role r
