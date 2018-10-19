@@ -1,9 +1,8 @@
 package com.wdsite.shiro.mapper;
 
-import java.util.List;
+import java.util.Set;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.wdsite.shiro.entity.SysRole;
 import com.wdsite.shiro.entity.SysUser;
 
 /**
@@ -16,6 +15,8 @@ import com.wdsite.shiro.entity.SysUser;
  */
 public interface SysUserMapper extends BaseMapper<SysUser> {
 	
-	public List<SysRole> getRolesByUserId(Long userId);
+	public Set<String> getRolesByUserId(Long userId);
+	
+	public Set<String> getPermissionsByUserId(Long userId);
 	
 }

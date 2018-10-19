@@ -14,13 +14,38 @@
         <result column="REMOVED" property="removed" />
         <result column="create_time" property="createTime" />
         <result column="update_time" property="updateTime" />
+        <!-- 
+        <collection property="roles" column="id" fetchType="lazy" 
+        select="com.wdsite.shiro.mapper.SysUserRoleMapper.getRolesByUserId" 
+        ofType="com.wdsite.shiro.entity.SysRole">
+        	<id column="id" property="id" />
+	        <result column="name" property="name" />
+	        <result column="parent_id" property="parentId" />
+	        <result column="description" property="description" />
+	        <result column="available" property="available" />
+	        <result column="REMOVED" property="removed" />
+	        <result column="create_time" property="createTime" />
+	        <result column="update_time" property="updateTime" />
+        </collection>
+         -->
     </resultMap>
     
-    <select id="getRolesByUserId" resultType="com.wdsite.shiro.entity.SysRole">
-    	SELECT r.*
+    <select id="getRolesByUserId" resultType="java.lang.String">
+    	SELECT r.name
 		FROM sys_role r
 		RIGHT JOIN sys_user_role ur ON r.id=ur.role_id
-		WHERE ur.user_id=#{userId}
+		WHERE r.REMOVED=0 AND ur.user_id=#{userId}
+    </select>
+    
+    <select id="getPermissionsByUserId" resultType="java.lang.String">
+    	SELECT p.name
+		FROM sys_permission p
+		JOIN sys_role_permission rp ON rp.permission_id=p.id
+		WHERE p.REMOVED=0 AND rp.role_id IN (
+			SELECT ur.role_id
+			FROM sys_user_role ur
+			WHERE ur.user_id=#{userId}
+		)    
     </select>
     
 

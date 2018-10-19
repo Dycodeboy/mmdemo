@@ -2,6 +2,7 @@ package com.wdsite.shiro.service.impl;
 
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -23,6 +24,9 @@ import com.wdsite.shiro.service.ISysUserService;
 public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> implements ISysUserService {
 
 	private PasswordHelper passwordHelper = new PasswordHelper();
+	
+	@Autowired
+	private SysUserMapper userDao;
 	
 	@Override
 	public boolean saveOrUpdate(SysUser entity) {
@@ -61,14 +65,20 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
 	@Override
 	public Set<String> findRoles(String account) {
-		// TODO Auto-generated method stub
-		return null;
+		SysUser user = this.findByAccount(account);
+		if(user == null) {
+			return null;
+		}
+		return userDao.getRolesByUserId(user.getId());
 	}
 
 	@Override
 	public Set<String> findPermissions(String account) {
-		// TODO Auto-generated method stub
-		return null;
+		SysUser user = this.findByAccount(account);
+		if(user == null) {
+			return null;
+		}
+		return userDao.getPermissionsByUserId(user.getId());
 	}
 
 }

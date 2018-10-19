@@ -17,7 +17,7 @@ import com.baomidou.mybatisplus.annotation.TableLogic;
  * @since 2018-10-12
  */
 public class SysUser implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
@@ -157,4 +157,5 @@ public class SysUser implements Serializable {
         ", updateTime=" + updateTime +
         "}";
     }
+
 }

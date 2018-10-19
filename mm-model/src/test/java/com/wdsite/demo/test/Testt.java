@@ -60,6 +60,7 @@ public class Testt {
 	@Test
 	public void test3() {
 		System.out.println(userDao.selectById(1));
+		System.out.println(userDao.getPermissionsByUserId(1L));
 		System.out.println(roleDao.getRolesByUserId(1L));
 	}
 	
