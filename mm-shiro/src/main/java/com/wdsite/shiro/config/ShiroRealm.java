@@ -46,7 +46,7 @@ public class ShiroRealm extends AuthorizingRealm {
 		if (user == null) {
 			return null;
 		}
-		if (user.getAvailable()) { // 账户冻结
+		if (!user.getAvailable()) { // 账户冻结
 			throw new LockedAccountException();
 		}
 		SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(user.getAccount(),

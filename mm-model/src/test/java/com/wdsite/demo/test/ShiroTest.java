@@ -5,6 +5,7 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.mgt.DefaultSecurityManager;
 import org.apache.shiro.realm.SimpleAccountRealm;
 import org.apache.shiro.subject.Subject;
+import org.apache.shiro.mgt.SecurityManager;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,6 +24,9 @@ import com.wdsite.shiro.service.ISysUserService;
 public class ShiroTest {
 
 	private SimpleAccountRealm simpleAccountRealm = new SimpleAccountRealm(); // 创建一个简单的账户域
+	
+	@Autowired
+	private SecurityManager securityManager;
 
 	@Before
 	public void Adduser() {
@@ -61,7 +65,13 @@ public class ShiroTest {
 	public void test2() {
 		
 		String account = "test1";
+		String password = "test1";
 		SysUser user = userService.findByAccount(account);
+		SecurityUtils.setSecurityManager(securityManager);
+		Subject subject = SecurityUtils.getSubject();
+		UsernamePasswordToken token = new UsernamePasswordToken(account, password);
+		subject.login(token);
+		System.out.println(subject.isAuthenticated());
 		System.out.println(user);
 	}
 	
