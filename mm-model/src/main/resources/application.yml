@@ -18,13 +18,13 @@ spring:
 # 驱动配置信息  
   datasource:
     type : com.alibaba.druid.pool.DruidDataSource  
-    url : jdbc:mysql://192.168.207.134:3306/demo?userSSL=false&characterEncoding=UTF8&serverTimezone=UTC  
-    username: psb  
+    url : jdbc:mysql://47.100.207.19:3306/demo?userSSL=false&characterEncoding=UTF8&serverTimezone=UTC  
+    username: demo  
     password: 123456
     driverClassName : com.mysql.cj.jdbc.Driver  
   redis:
     shiro:
-      host: 192.168.207.134
+      host: 47.100.207.19
       port: 6379
       timeout: 3000
       password: dy513952310
