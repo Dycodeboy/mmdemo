@@ -3,7 +3,7 @@ package com.wdsite.common.util;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class StringUtil {
+public class StringUtils {
 
     public static String[] split(String url, String string) {
         return url.split(string);
@@ -81,7 +81,7 @@ public class StringUtil {
         StringBuffer sb = new StringBuffer();
         while (m.find()) {
             String mcStr = m.group(1);
-            int charValue = StringUtil.convertInt(mcStr, -1);
+            int charValue = StringUtils.convertInt(mcStr, -1);
             String s = charValue > 0 ? (char) charValue + "" : "";
             m.appendReplacement(sb, Matcher.quoteReplacement(s));
         }

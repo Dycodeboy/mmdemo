@@ -8,8 +8,10 @@ import org.springframework.stereotype.Service;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.wdsite.shiro.entity.SysUser;
+import com.wdsite.shiro.entity.SysUserRole;
 import com.wdsite.shiro.helper.PasswordHelper;
 import com.wdsite.shiro.mapper.SysUserMapper;
+import com.wdsite.shiro.mapper.SysUserRoleMapper;
 import com.wdsite.shiro.service.ISysUserService;
 
 /**
@@ -24,6 +26,9 @@ import com.wdsite.shiro.service.ISysUserService;
 public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> implements ISysUserService {
 
 	private PasswordHelper passwordHelper = new PasswordHelper();
+	
+	@Autowired
+	private  SysUserRoleMapper userRoleDao;
 	
 	@Autowired
 	private SysUserMapper userDao;
@@ -44,14 +49,30 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
 	@Override
 	public void correlaionRoles(Long userId, Integer... roleIds) {
-		// TODO Auto-generated method stub
-		
+		QueryWrapper<SysUserRole> qw = new QueryWrapper<SysUserRole>();
+		SysUserRole ur = new SysUserRole();
+		ur.setUserId(userId);
+		for (Integer roleId : roleIds) {
+			ur.setRoleId(roleId);
+			qw.setEntity(ur);
+			if(userRoleDao.selectOne(qw) == null) {
+				userRoleDao.insert(ur);
+			}
+		}
 	}
 
 	@Override
 	public void uncorrelationRoles(Long userId, Integer... roleIds) {
-		// TODO Auto-generated method stub
-		
+		QueryWrapper<SysUserRole> qw = new QueryWrapper<SysUserRole>();
+		SysUserRole ur = new SysUserRole();
+		ur.setUserId(userId);
+		for (Integer roleId : roleIds) {
+			ur.setRoleId(roleId);
+			qw.setEntity(ur);
+			if(userRoleDao.selectOne(qw) != null) {
+				userRoleDao.delete(qw);
+			}
+		}
 	}
 
 	@Override

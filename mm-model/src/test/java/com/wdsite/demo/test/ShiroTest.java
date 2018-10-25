@@ -70,7 +70,11 @@ public class ShiroTest {
 		SecurityUtils.setSecurityManager(securityManager);
 		Subject subject = SecurityUtils.getSubject();
 		UsernamePasswordToken token = new UsernamePasswordToken(account, password);
-		subject.login(token);
+		try {
+			subject.login(token);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		System.out.println(subject.isAuthenticated());
 		System.out.println(user);
 	}

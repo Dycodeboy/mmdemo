@@ -111,9 +111,8 @@
 
 
 	<modules>
-		<module>mm-web</module>
 		<module>mm-shiro</module>
 		<module>mm-model</module>
-    <module>mm-common</module>
+    	<module>mm-common</module>
   </modules>
 </project>

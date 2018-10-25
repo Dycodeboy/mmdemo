@@ -17,7 +17,7 @@ import com.wdsite.demo.model.service.IDemoService;
  * @since 2018-09-26
  */
 @RestController
-@RequestMapping("/demo/demo")
+@RequestMapping("/demo")
 public class DemoController {
 	
 	@Autowired

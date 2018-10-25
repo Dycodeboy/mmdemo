@@ -51,8 +51,7 @@ public class ShiroConfig {
 		Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
 		// 注意过滤器配置顺序 不能颠倒
 		// 配置退出 过滤器,其中的具体的退出代码Shiro已经替我们实现了，登出后跳转配置的loginUrl
-		filterChainDefinitionMap.put("/static/**", "anon");
-		filterChainDefinitionMap.put("/templates/**", "anon");
+//		filterChainDefinitionMap.put("/templates/**", "anon");
 		filterChainDefinitionMap.put("/logout", "logout");
 		// 配置不会被拦截的链接 顺序判断
 		filterChainDefinitionMap.put("/static/**", "anon");
@@ -88,9 +87,9 @@ public class ShiroConfig {
 		DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
 		securityManager.setRealm(shiroRealm());
 		// 自定义session管理 使用redis
-		securityManager.setSessionManager(sessionManager());
 		// 自定义缓存实现 使用redis
-		securityManager.setCacheManager(cacheManager());
+//		securityManager.setSessionManager(sessionManager());
+//		securityManager.setCacheManager(cacheManager());
 		return securityManager;
 	}
 	

@@ -1,7 +1,6 @@
 package com.wdsite.shiro.config;
 
-import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
+import org.apache.shiro.authc.AccountException;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -21,7 +20,7 @@ import com.wdsite.shiro.service.ISysUserService;
 import com.wdsite.shiro.util.AuthSubjectUtil;
 
 /**
- * Created by Administrator on 2017/12/11. 自定义权限匹配和账号密码匹配
+ * 自定义权限匹配和账号密码匹配
  */
 public class ShiroRealm extends AuthorizingRealm {
 
@@ -33,24 +32,23 @@ public class ShiroRealm extends AuthorizingRealm {
 	/* 主要是用来进行身份认证的，也就是说验证用户输入的账号和密码是否正确。 */
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-		logger.info("MyShiroRealm.doGetAuthenticationInfo()");
-		logger.info(
-				"验证当前Subject时获取到token为：" + ReflectionToStringBuilder.toString(token, ToStringStyle.MULTI_LINE_STYLE));
+		logger.info("Shiro身份-->ShiroRealm.doGetAuthenticationInfo()--------");
+		// logger.info("验证当前Subject时获取到token为：\n"
+		// + ReflectionToStringBuilder.toString(token, ToStringStyle.MULTI_LINE_STYLE));
 		// 获取用户的输入的账号.
 		String account = (String) token.getPrincipal();
-		System.out.println(token.getCredentials());
 		// 通过username从数据库中查找 User对象，如果找到，没找到.
 		// 实际项目中，这里可以根据实际情况做缓存，如果不做，Shiro自己也是有时间间隔机制，2分钟内不会重复执行该方法
 		SysUser user = userService.findByAccount(account);
-		System.out.println("----->>user=" + user);
 		if (user == null) {
-			return null;
+			throw new AccountException("用户名不正确");
 		}
 		if (!user.getAvailable()) { // 账户冻结
 			throw new LockedAccountException();
 		}
 		SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(user.getAccount(),
-				user.getPassword(), ByteSource.Util.bytes(user.getAccount() + user.getSalt()), user.getName());
+				user.getPassword(), user.getName());
+		authenticationInfo.setCredentialsSalt(ByteSource.Util.bytes(user.getAccount() + user.getSalt()));
 		return authenticationInfo;
 	}
 
