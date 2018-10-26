@@ -16,7 +16,6 @@ import com.wdsite.demo.model.mapper.DemoMapper;
 import com.wdsite.demo.model.service.IDemoService;
 import com.wdsite.shiro.mapper.SysRoleMapper;
 import com.wdsite.shiro.mapper.SysUserMapper;
-import com.wdsite.shiro.service.ISysUserService;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -47,9 +46,6 @@ public class Testt {
 		
 		
 	}
-	
-	@Autowired
-	private ISysUserService userService;
 	
 	@Autowired
 	private SysUserMapper userDao;

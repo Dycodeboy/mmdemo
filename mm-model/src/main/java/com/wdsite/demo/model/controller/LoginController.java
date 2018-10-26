@@ -12,7 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.alibaba.fastjson.JSON;
-import com.wdsite.common.util.ResponseJsonUtils;
+import com.wdsite.common.constant.ResponseCode;
+import com.wdsite.common.web.ResponseJsonUtils;
 
 @Controller
 public class LoginController {
@@ -36,7 +37,7 @@ public class LoginController {
 		if(subject.isAuthenticated()) {
 			return JSON.toJSONString(ResponseJsonUtils.success("login success"));
 		}else {
-			return JSON.toJSONString(ResponseJsonUtils.fail("login fail"));
+			return JSON.toJSONString(ResponseJsonUtils.fail(ResponseCode.Forbidden));
 		}
 	}
 }
