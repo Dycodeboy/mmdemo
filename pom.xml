@@ -95,24 +95,12 @@
 	    -->
 	</dependencies>
 
-	<build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                </configuration>
-            </plugin>
-        </plugins>
-        <finalName>demo</finalName>
-    </build>
+
 
 
 	<modules>
-		<module>mm-shiro</module>
 		<module>mm-model</module>
+		<module>mm-shiro</module>
     	<module>mm-common</module>
   </modules>
 </project>
