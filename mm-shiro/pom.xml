@@ -8,7 +8,6 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>mm-shiro</artifactId>
-	<name>shiro</name>
 
 	<dependencies>
 		<dependency>
@@ -26,27 +25,11 @@
 			<artifactId>shiro-ehcache</artifactId>
 			<version>1.4.0</version>
 		</dependency>
-		
 		<dependency>
 		    <groupId>com.alibaba</groupId>
 		    <artifactId>fastjson</artifactId>
 		    <version>1.2.51</version>
 		</dependency>
-			
 	</dependencies>
 	
-	<build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                </configuration>
-            </plugin>
-        </plugins>
-        <finalName>spring-boot-mp-shiro</finalName>
-    </build>
-
 </project>

@@ -21,5 +21,20 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
+	
+	<build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <mainClass>com.wdsite.demo.model.Application</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+        <finalName>demo</finalName>
+    </build>
 
 </project>
