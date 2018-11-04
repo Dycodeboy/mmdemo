@@ -18,7 +18,7 @@ import com.wdsite.common.web.ResponseJsonUtils;
 @Controller
 public class LoginController {
 	
-	private Logger logger = LoggerFactory.getLogger(LoginController.class);
+	private final static Logger logger = LoggerFactory.getLogger(LoginController.class);
 	
 	@RequestMapping("/login")
 	public String login(HttpServletRequest req, HttpServletResponse resp) {
@@ -35,7 +35,7 @@ public class LoginController {
 		}
 		System.out.println();
 		if(subject.isAuthenticated()) {
-			return JSON.toJSONString(ResponseJsonUtils.success("login success"));
+			return JSON.toJSONString(new ResponseJsonUtils<String>().success("login success"));
 		}else {
 			return JSON.toJSONString(ResponseJsonUtils.fail(ResponseCode.Forbidden));
 		}

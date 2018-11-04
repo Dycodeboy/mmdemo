@@ -5,17 +5,18 @@ package com.wdsite.common.vo;
  * 相关工具类参考ResponseJsonUtils
  * 
  * @author CodingDy
+ * @param <T>
  *
  */
-public class Result{
+public class Result<T>{
 	
-	private Boolean success;
+	private Boolean success = false;
 	
 	private String message;
 	
 	private Integer code;
 	
-	private Object date;
+	private T data;
 
 	public Result(Boolean success, Integer code) {
 		this.success = success;
@@ -46,12 +47,12 @@ public class Result{
 		this.code = code;
 	}
 
-	public Object getDate() {
-		return date;
+	public T getData() {
+		return data;
 	}
 
-	public void setDate(Object date) {
-		this.date = date;
+	public void setData(T data) {
+		this.data = data;
 	}
-	
+
 }
