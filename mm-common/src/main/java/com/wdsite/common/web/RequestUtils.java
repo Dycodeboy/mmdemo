@@ -1,7 +1,7 @@
 package com.wdsite.common.web;
 
-import static com.wdsite.common.constant.WebConstants.POST;
-import static com.wdsite.common.constant.WebConstants.UTF8;
+import static com.wdsite.common.constant.WebConstant.POST;
+import static com.wdsite.common.constant.WebConstant.UTF8;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -18,7 +18,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.util.UrlPathHelper;
 
-import com.wdsite.common.constant.WebConstants;
+import com.wdsite.common.constant.WebConstant;
 
 /**
  * HttpServletRequest帮助类
@@ -258,7 +258,7 @@ public class RequestUtils {
 			return sid;
 		} else {
 			// 手动从cookie获取
-			Cookie cookie = CookieUtils.getCookie(request,WebConstants.JSESSION_COOKIE);
+			Cookie cookie = CookieUtils.getCookie(request,WebConstant.JSESSION_COOKIE);
 			if (cookie != null) {
 				return cookie.getValue();
 			} else {

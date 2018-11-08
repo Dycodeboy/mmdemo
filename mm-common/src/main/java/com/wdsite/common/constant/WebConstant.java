@@ -3,7 +3,7 @@ package com.wdsite.common.constant;
 /**
  * web常量
  */
-public abstract class WebConstants {
+public interface WebConstant {
 	/**
 	 * 路径分隔符
 	 */
