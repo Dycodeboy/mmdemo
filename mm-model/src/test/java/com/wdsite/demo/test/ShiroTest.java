@@ -14,7 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import com.wdsite.demo.model.Application;
+import com.wdsite.model.Application;
 import com.wdsite.shiro.entity.SysUser;
 import com.wdsite.shiro.service.ISysUserService;
 

@@ -10,10 +10,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.wdsite.demo.model.Application;
-import com.wdsite.demo.model.entity.Demo;
-import com.wdsite.demo.model.mapper.DemoMapper;
-import com.wdsite.demo.model.service.IDemoService;
+import com.wdsite.model.Application;
+import com.wdsite.model.entity.Demo;
+import com.wdsite.model.mapper.DemoMapper;
+import com.wdsite.model.service.IDemoService;
 import com.wdsite.shiro.mapper.SysRoleMapper;
 import com.wdsite.shiro.mapper.SysUserMapper;
 

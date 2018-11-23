@@ -1,4 +1,4 @@
-package com.wdsite.demo.model.config;
+package com.wdsite.common.config;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,8 +1,8 @@
-package com.wdsite.demo.model.service.impl;
+package com.wdsite.model.service.impl;
 
-import com.wdsite.demo.model.entity.Demo;
-import com.wdsite.demo.model.mapper.DemoMapper;
-import com.wdsite.demo.model.service.IDemoService;
+import com.wdsite.model.entity.Demo;
+import com.wdsite.model.mapper.DemoMapper;
+import com.wdsite.model.service.IDemoService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.wdsite.demo.model.config;
+package com.wdsite.common.config;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
@@ -13,7 +13,7 @@ import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 //Spring boot方式
 @EnableTransactionManagement
 @Configuration
-@MapperScan({"com.wdsite.*.mapper","com.wdsite.demo.*.mapper"})
+@MapperScan(basePackages={"com.wdsite.*.mapper"}, sqlSessionFactoryRef="sqlSessionFactory")
 public class MybatisPlusConfig {
 
 	/**

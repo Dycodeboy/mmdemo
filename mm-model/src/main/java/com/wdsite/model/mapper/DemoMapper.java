@@ -1,7 +1,7 @@
-package com.wdsite.demo.model.mapper;
+package com.wdsite.model.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.wdsite.demo.model.entity.Demo;
+import com.wdsite.model.entity.Demo;
 
 /**
  * <p>

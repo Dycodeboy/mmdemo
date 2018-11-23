@@ -1,6 +1,14 @@
 package com.wdsite.common.constant;
 
-public interface Constant {
+public interface Constants {
+	
+	public static final Boolean ACCOUNT_AVAILABLE = true; //账号可用
+	
+	public static final Boolean ACCOUNT_DISABLE = false; //账号不可用
+	
+	public static final Boolean REMOVED = true; //信息已删除
+
+	public static final Boolean NOT_REMOVED = false; //信息未删除
 
 	public static final int BYTE_BUFFER = 1024;
 
@@ -9,19 +17,9 @@ public interface Constant {
 	// 根菜单节点
 	public static final String ROOT_MENU = "0";
 
-	// 启用
-	public static final int ENABLE = 1;
-	
-	// 禁用
-	public static final int DISABLE = 0;
-	
 	// 可用
-	public static final boolean AVAILABLE = true;
+//	public static final boolean AVAILABLE = true;
 	
-	// 删除
-	public static final boolean REMOVED = true;
-	
-
 	public static class FilePostFix {
 		public static final String ZIP_FILE = ".zip";
 

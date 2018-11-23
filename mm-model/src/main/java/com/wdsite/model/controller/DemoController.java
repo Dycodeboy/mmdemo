@@ -1,12 +1,12 @@
-package com.wdsite.demo.model.controller;
+package com.wdsite.model.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.wdsite.demo.model.entity.Demo;
-import com.wdsite.demo.model.service.IDemoService;
+import com.wdsite.model.entity.Demo;
+import com.wdsite.model.service.IDemoService;
 
 /**
  * <p>

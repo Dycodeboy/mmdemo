@@ -1,13 +1,14 @@
-package com.wdsite.demo.model.entity;
+package com.wdsite.model.entity;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.baomidou.mybatisplus.annotation.TableField;
-import java.io.Serializable;
 
 /**
  * <p>

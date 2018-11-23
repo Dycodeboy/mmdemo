@@ -1,4 +1,4 @@
-package com.wdsite.demo.model.tools;
+package com.wdsite.model.tools;
 
 import java.util.ArrayList;
 import java.util.List;

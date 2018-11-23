@@ -1,4 +1,4 @@
-package com.wdsite.demo.model.controller;
+package com.wdsite.model.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

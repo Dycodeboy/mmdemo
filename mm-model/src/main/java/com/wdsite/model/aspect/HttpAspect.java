@@ -1,4 +1,4 @@
-package com.wdsite.demo.model.aspect;
+package com.wdsite.model.aspect;
 
 import javax.servlet.http.HttpServletRequest;
 

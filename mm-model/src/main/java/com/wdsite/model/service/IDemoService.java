@@ -1,7 +1,7 @@
-package com.wdsite.demo.model.service;
+package com.wdsite.model.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.wdsite.demo.model.entity.Demo;
+import com.wdsite.model.entity.Demo;
 
 /**
  * <p>

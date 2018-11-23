@@ -54,9 +54,42 @@
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
-                    <mainClass>com.wdsite.demo.model.Application</mainClass>
+                    <mainClass>com.wdsite.model.Application</mainClass>
                 </configuration>
             </plugin>
+            <!--配置生成Javadoc包-->
+	        <plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-javadoc-plugin</artifactId>
+	            <configuration>
+	                <encoding>UTF-8</encoding>
+	                <aggregate>true</aggregate>
+	                <charset>UTF-8</charset>
+	                <docencoding>UTF-8</docencoding>
+	            </configuration>
+	            <executions>
+	                <execution>
+	                    <id>attach-javadocs</id>
+	                    <goals>
+	                        <goal>jar</goal>
+	                    </goals>
+	                </execution>
+	            </executions>
+	        </plugin>
+	        <!--配置生成源码包-->
+	        <plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-source-plugin</artifactId>
+	            <executions>
+	                <execution>
+	                    <id>attach-sources</id>
+	                	<phase>compile</phase>
+	                    <goals>
+	                        <goal>jar</goal>
+	                    </goals>
+	                </execution>
+	            </executions>
+	        </plugin>
         </plugins>
         <finalName>demo</finalName>
     </build>

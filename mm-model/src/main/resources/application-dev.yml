@@ -30,21 +30,6 @@ spring:
       timeout: 3000
       password: dy513952310
 
-#连接池的配置信息  
-#              initialSize=5  
-#              minIdle=5  
-#              maxActive=20  
-#              maxWait=60000  
-#              timeBetweenEvictionRunsMillis=60000  
-#              minEvictableIdleTimeMillis=300000  
-#              validationQuery=SELECT 1 FROM DUAL  
-#              testWhileIdle=true  
-#              testOnBorrow=false  
-#              testOnReturn=false  
-#              poolPreparedStatements=true  
-#              maxPoolPreparedStatementPerConnectionSize=20  
-#              filters=stat,wall,log4j  
-#              connectionProperties=druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000  
 #mybatis
 mybatis-plus:
   mapper-locations: classpath*:/mapper/*Mapper.xml
