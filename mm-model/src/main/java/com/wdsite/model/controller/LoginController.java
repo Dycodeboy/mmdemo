@@ -8,19 +8,24 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSON;
 import com.wdsite.common.constant.ResponseCode;
 import com.wdsite.common.web.ResponseJsonUtils;
 
-@Controller
+@RestController
 public class LoginController {
 	
 	private final static Logger logger = LoggerFactory.getLogger(LoginController.class);
 	
-	@RequestMapping("/login")
+//	@GetMapping(path="/login")
+//	public ModelAndView login1(HttpServletRequest req, HttpServletResponse resp) {
+//		
+//	}
+	
+	@PostMapping(path="/login")
 	public String login(HttpServletRequest req, HttpServletResponse resp) {
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
@@ -31,9 +36,8 @@ public class LoginController {
 		try {
 			subject.login(token);
 		} catch (Exception e) {
-			logger.info(e.getMessage());
+			logger.info("登录失败："+e.getMessage());
 		}
-		System.out.println();
 		if(subject.isAuthenticated()) {
 			return JSON.toJSONString(new ResponseJsonUtils<String>().success("login success"));
 		}else {
