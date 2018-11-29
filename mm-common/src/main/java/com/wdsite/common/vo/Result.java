@@ -8,7 +8,7 @@ package com.wdsite.common.vo;
  * @param <T>
  *
  */
-public class Result<T>{
+public class Result{
 	
 	private Boolean success = false;
 	
@@ -16,7 +16,7 @@ public class Result<T>{
 	
 	private Integer code;
 	
-	private T data;
+	private Object data;
 
 	public Result(Boolean success, Integer code) {
 		this.success = success;
@@ -47,11 +47,11 @@ public class Result<T>{
 		this.code = code;
 	}
 
-	public T getData() {
+	public Object getData() {
 		return data;
 	}
 
-	public void setData(T data) {
+	public void setData(Object data) {
 		this.data = data;
 	}
 

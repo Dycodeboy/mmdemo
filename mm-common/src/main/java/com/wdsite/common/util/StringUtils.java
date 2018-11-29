@@ -204,12 +204,11 @@ public class StringUtils {
 
     /**
      * 隐藏用户名
-     *
+     * 只取第一位和最后一位
      * @param username
      * @return
      */
     public static String hideStringUsername(String username) {
-        //不搞这么复杂吧，直接取用户名第一个和最后一个就可以了。并且之前的方法对于只有2个字的用户名加不了掩码的
         if (CommonUtils.isEmpty(username)) return null;
         StringBuilder builder = new StringBuilder(4);
         builder.append(username.substring(0, 1));

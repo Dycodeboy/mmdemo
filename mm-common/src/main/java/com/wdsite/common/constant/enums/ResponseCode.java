@@ -1,4 +1,4 @@
-package com.wdsite.common.constant;
+package com.wdsite.common.constant.enums;
 
 public enum ResponseCode {
 	

@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSON;
-import com.wdsite.common.constant.ResponseCode;
-import com.wdsite.common.web.ResponseJsonUtils;
+import com.wdsite.common.constant.enums.ResponseCode;
+import com.wdsite.common.web.ReJsonUtils;
 
 @RestController
 public class LoginController {
@@ -39,9 +39,9 @@ public class LoginController {
 			logger.info("登录失败："+e.getMessage());
 		}
 		if(subject.isAuthenticated()) {
-			return JSON.toJSONString(new ResponseJsonUtils<String>().success("login success"));
+			return JSON.toJSONString(new ReJsonUtils().success("login success"));
 		}else {
-			return JSON.toJSONString(ResponseJsonUtils.fail(ResponseCode.Forbidden));
+			return JSON.toJSONString(ReJsonUtils.fail(ResponseCode.Forbidden));
 		}
 	}
 }
