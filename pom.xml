@@ -96,6 +96,10 @@
 			<artifactId>freemarker</artifactId>
 		</dependency>
 
+		<dependency>
+	      <groupId>org.apache.commons</groupId>
+	      <artifactId>commons-lang3</artifactId>
+	    </dependency>
 		<!-- shiro 
 		<dependency> 
 			<groupId>org.apache.shiro</groupId> 
@@ -128,6 +132,5 @@
 		<module>mm-model</module>
 		<module>mm-shiro</module>
 		<module>mm-common</module>
-		<module>wdsite-system</module>
 	</modules>
 </project>
